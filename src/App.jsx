@@ -1,8 +1,9 @@
+import Navber from "./Components/Navber/Navber";
 
 const App = () => {
   return (
     <div>
-      <h1></h1>
+     <Navber></Navber>
     </div>
   );
 };

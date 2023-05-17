@@ -5,14 +5,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import App from "./App";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
+import Home from "./Components/Home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<App></App>
+    element:<Home></Home>
   },
   {
     path: "/register",
