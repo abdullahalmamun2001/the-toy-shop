@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddToy = () => {
+    const {user}=useContext(AuthContext)
     const handleAddToy=(event)=>{
         event.preventDefault();
 
         const form=event.target;
         const name=form.name.value;
         const picture=form.picture.value;
-        const sellerEmail=form.sellerEmail.value;
+        const sellerEmail=user?.email;
         const category=form.category.value;
         const price=form.price.value;
         const rating=form.rating.value;
-        const sellerName=form.sellerName.value;
+        const sellerName=user?.displayName;
         const description=form.description.value;
         const newToy={name,picture,sellerEmail,category,price,rating,sellerName,description}
         console.log(newToy);
+        fetch('http://localhost:5000/toy',{
+            method:'POST',
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(newToy)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
 
     }
     return (
@@ -48,7 +61,7 @@ const AddToy = () => {
                                 <label className="label">
                                     <span className="label-text">Seller Name</span>
                                 </label>
-                                <input type="text" name="sellerName" placeholder="Seller name" className="input input-bordered" />
+                                <input type="text" name="sellerName" value={user?.user?.email} placeholder="Seller name" className="input input-bordered" />
 
                             </div>
                             
