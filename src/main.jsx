@@ -11,9 +11,10 @@ import Home from "./Components/Home/Home";
 
 
 import AuthProvider from "./Provider/AuthProvider";
-import Navber from "./Components/Navber/Navber";
+
 import Layout from "./Components/Layout/Layout";
-import App from "./App";
+
+import AddToy from "./Components/AddToy/AddToy";
 
 // import Layout from "./Components/Layout/Layout";
 // import Navber from "./Components/Navber/Navber";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login></Login>
       },
+      {
+        path:'/addToy',
+        element:<AddToy></AddToy>
+      }
     ]
   }
 ]);

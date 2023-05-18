@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-    const {createUser}=useContext(AuthContext)
+    const {createUser,googleRegister}=useContext(AuthContext)
 
     
     const handleLogin=(event)=>{
@@ -18,6 +18,11 @@ const Login = () => {
             console.log(logged);
         })
         .then(error=>console.log(error.massage))
+    }
+    const handleGoogleRegister=()=>{
+        googleRegister()
+        .then(result=>{console.log(result.user);})
+        .then(error=>{console.log(error.massage);})
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -44,6 +49,7 @@ const Login = () => {
                     </form>
                     
                     <p>new User?Please <Link to='/register'>Register</Link> </p>
+                    <button className="btn btn-primary" onClick={handleGoogleRegister}>Google</button>
                 </div>
             </div>
         </div>
