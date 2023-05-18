@@ -3,7 +3,7 @@ import Navber from "./Components/Navber/Navber";
 const App = () => {
   return (
     <div>
-     <Navber></Navber>
+     <h1>thisis  issi </h1>
     </div>
   );
 };

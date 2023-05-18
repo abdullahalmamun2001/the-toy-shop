@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Navber = () => {
+    const {user}=useContext(AuthContext);
+    console.log(user);
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -13,6 +18,9 @@ const Navber = () => {
                     <NavLink to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/login" activeClassName="active">Login</NavLink>
                     <NavLink to="/register" activeClassName="active">Register</NavLink>
+                    {
+                        user?<p>{user.email}</p>:''
+                    }
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -22,6 +30,9 @@ const Navber = () => {
                 <NavLink to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/login" activeClassName="active">Login</NavLink>
                     <NavLink to="/register" activeClassName="active">Register</NavLink>
+                    {
+                        user?<p>{user.email}</p>:''
+                    }
                 </ul>
             </div>
             <div className="navbar-end">
