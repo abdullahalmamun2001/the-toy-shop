@@ -27,6 +27,9 @@ const AddToy = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            if(data.insertedId){
+                alert('This information is added in mongodb')
+            }
         })
 
     }

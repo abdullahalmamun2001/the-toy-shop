@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Navber from "../Navber/Navber";
+import TabsComponent from "../TabsComponent/TabsComponent";
 
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
   console.log(data);
     return (
         <div>
+          <TabsComponent></TabsComponent>
           {
             data?.map(d=><p>{d._id}</p>)
           }
