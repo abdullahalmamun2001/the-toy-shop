@@ -2,35 +2,36 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddToy = () => {
-    const {user}=useContext(AuthContext)
-    const handleAddToy=(event)=>{
+    const { user } = useContext(AuthContext)
+    const handleAddToy = (event) => {
         event.preventDefault();
 
-        const form=event.target;
-        const name=form.name.value;
-        const picture=form.picture.value;
-        const sellerEmail=user?.email;
-        const category=form.category.value;
-        const price=form.price.value;
-        const rating=form.rating.value;
-        const sellerName=user?.displayName;
-        const description=form.description.value;
-        const newToy={name,picture,sellerEmail,category,price,rating,sellerName,description}
+        const form = event.target;
+        const name = form.name.value;
+        const picture = form.picture.value;
+        const sellerEmail = user?.email;
+        const category = form.category.value;
+        const price = form.price.value;
+        const quantity = form.quantity.value;
+        const rating = form.rating.value;
+        const sellerName = user?.displayName;
+        const description = form.description.value;
+        const newToy = { name, picture, sellerEmail, category, price, rating, sellerName, description }
         console.log(newToy);
-        fetch('http://localhost:5000/toy',{
-            method:'POST',
-            headers:{
-                "content-type":"application/json"
+        fetch('http://localhost:5000/toy', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
             },
-            body:JSON.stringify(newToy)
+            body: JSON.stringify(newToy)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            if(data.insertedId){
-                alert('This information is added in mongodb')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    alert('This information is added in mongodb')
+                }
+            })
 
     }
     return (
@@ -67,7 +68,7 @@ const AddToy = () => {
                                 <input type="text" name="sellerName" value={user?.user?.email} placeholder="Seller name" className="input input-bordered" />
 
                             </div>
-                            
+
                         </div>
                         <div className="flex gap-16">
                             <div className="form-control">
@@ -92,19 +93,29 @@ const AddToy = () => {
                                 <input type="text" name="rating" placeholder="Rating" className="input input-bordered" />
 
                             </div>
-                            <div className="form-control">
+                            <div>
+                                {/* <input type="text" placeholder="Sub-category" name='category' className="input input-bordered" /> */}
+                                <select name='category' className="select select-bordered w-full mt-10 max-w-xs">
+                                    
+                                    <option>MicroBus</option>
+                                    <option>PrivetCar</option>
+                                    <option>PoliceCar</option>
+                                </select>
+                            </div>
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Sub-category</span>
                                 </label>
                                 <input type="text" placeholder="Sub-category" name='category' className="input input-bordered" />
-                            </div>
+                                
+                            </div> */}
                         </div>
                         <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Details Description</span>
-                                </label>
-                                <input type="text" placeholder="Details Description" name='description' className="input input-bordered" />
-                            </div>
+                            <label className="label">
+                                <span className="label-text">Details Description</span>
+                            </label>
+                            <input type="text" placeholder="Details Description" name='description' className="input input-bordered" />
+                        </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary w-full">Add Toy</button>
                         </div>

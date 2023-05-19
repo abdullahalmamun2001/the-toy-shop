@@ -1,29 +1,20 @@
-import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
-function TabsComponent() {
-  const [activeTab, setActiveTab] = useState(0);
-
+const TabsComponent = ({ d }) => {
+  const { _id, name, picture } = d;
   return (
-    <div>
-      <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
-        <TabList>
-          <Tab>Title 1</Tab>
-          <Tab>Title 2</Tab>
-        </TabList>
-
-        <TabPanel>
-          <h2>Content 1</h2>
-          <p>This is the content of tab 1.</p>
-        </TabPanel>
-
-        <TabPanel>
-          <h2>Content 2</h2>
-          <p>This is the content of tab 2.</p>
-        </TabPanel>
-      </Tabs>
+    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <figure><img src={picture} alt="Shoes" /></figure>
+      <div className="card-body">
+        <h2 className="card-title">{name}</h2>
+        <p>{_id}</p>
+        <div className="card-actions justify-end">
+          <button className="btn btn-primary">Buy Now</button>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default TabsComponent;

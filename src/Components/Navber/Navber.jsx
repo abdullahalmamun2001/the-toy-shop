@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import logo from '../../assets/logo.png'
 
 
 const Navber = () => {
     const {user}=useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     return (
         <div className="navbar bg-base-100">
@@ -17,20 +18,21 @@ const Navber = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <NavLink to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/login" activeClassName="active">Login</NavLink>
-                    <NavLink to="/register" activeClassName="active">Register</NavLink>
+                    <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
                     <NavLink to="/addToy" activeClassName="active">AddToy</NavLink>
                     {
                         user?<p>{user.email}</p>:''
                     }
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <img className="h-12 w-12 rounded-full " src={logo} alt="" />
+                <a className=" normal-case text-xl">The Toys Shop</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                 <NavLink to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/login" activeClassName="active">Login</NavLink>
-                    <NavLink to="/register" activeClassName="active">Register</NavLink>
+                    <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
                     <NavLink to="/addToy" activeClassName="active">AddToy</NavLink>
                     {
                         user?<p>{user.email}</p>:''

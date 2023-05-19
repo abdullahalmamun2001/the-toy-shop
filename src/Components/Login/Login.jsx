@@ -17,7 +17,7 @@ const Login = () => {
             const logged=result.user;
             console.log(logged);
         })
-        .then(error=>console.log(error.massage))
+        .then(error=>console.log(error.message))
     }
     const handleGoogleRegister=()=>{
         googleRegister()

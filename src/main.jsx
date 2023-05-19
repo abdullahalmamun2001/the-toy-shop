@@ -9,20 +9,18 @@ import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 
-
-import AuthProvider from "./Provider/AuthProvider";
-
 import Layout from "./Components/Layout/Layout";
-
 import AddToy from "./Components/AddToy/AddToy";
-
-// import Layout from "./Components/Layout/Layout";
-// import Navber from "./Components/Navber/Navber";
+import MyToys from "./Components/MyToys/MyToys";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
+import UpdateToy from "./Components/Update/UpdateToy";
+import AuthProvider from "./Provider/AuthProvider";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element:<Layout></Layout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -40,6 +38,16 @@ const router = createBrowserRouter([
       {
         path:'/addToy',
         element:<AddToy></AddToy>
+      },
+      {
+        path:'/myToys',
+        element:<MyToys></MyToys>
+      },
+      {
+        path:'/updateToy/:id',
+        element:<UpdateToy></UpdateToy>,
+        loader:({params})=>fetch(`http://localhost:5000/myToys/${params.id}`)
+        // loader:({params})=>fetch(`http://localhost:5000/toy/${params.id}`)
       }
     ]
   }
