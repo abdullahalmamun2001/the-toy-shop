@@ -42,7 +42,7 @@ const MyToyCard = ({ toy }) => {
         
             
                 <tr className='flex items-center gap-20'>
-
+                    <th>
                     <td>{name}</td>
                     <td>{description}</td>
                     <td>{sellerName}</td>
@@ -50,6 +50,7 @@ const MyToyCard = ({ toy }) => {
                     <td>{quantity}</td>
                     <td><Link to={`/updateToy/${_id}`}><button className="btn btn-primary">Update</button></Link></td>
                     <td> <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button></td>
+                    </th>
                 </tr>
            
 

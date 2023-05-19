@@ -26,21 +26,21 @@ const Home = () => {
         </TabList>
 
         <TabPanel>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-3">
           {
             category?.map(d => <TabsComponent key={d._id} d={d}></TabsComponent>)
           }
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid grid-cols-3">
           {
             category?.map(d => <TabsComponent key={d._id} d={d}></TabsComponent>)
           }
           </div>
         </TabPanel>
         <TabPanel>
-         <div  className="grid grid-cols-3 gap-10">
+         <div  className="grid grid-cols-3">
          {
             category?.map(d => <TabsComponent key={d._id} d={d}></TabsComponent>)
           }

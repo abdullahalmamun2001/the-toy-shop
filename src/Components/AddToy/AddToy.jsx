@@ -16,7 +16,7 @@ const AddToy = () => {
         const rating = form.rating.value;
         const sellerName = user?.displayName;
         const description = form.description.value;
-        const newToy = { name, picture, sellerEmail, category, price, rating, sellerName, description }
+        const newToy = { name, picture, sellerEmail, category,quantity, price, rating, sellerName, description }
         console.log(newToy);
         fetch('http://localhost:5000/toy', {
             method: 'POST',

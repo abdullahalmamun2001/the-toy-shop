@@ -19,7 +19,8 @@ const Navber = () => {
                     <NavLink to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/login" activeClassName="active">Login</NavLink>
                     <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
-                    <NavLink to="/addToy" activeClassName="active">AddToy</NavLink>
+                    <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
+                    <NavLink to="/allToys" activeClassName="active">AllToys</NavLink>
                     {
                         user?<p>{user.email}</p>:''
                     }
@@ -33,6 +34,7 @@ const Navber = () => {
                 <NavLink to="/" activeClassName="active">Home</NavLink>
                     <NavLink to="/login" activeClassName="active">Login</NavLink>
                     <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
+                    <NavLink to="/allToys" activeClassName="active">AllToys</NavLink>
                     <NavLink to="/addToy" activeClassName="active">AddToy</NavLink>
                     {
                         user?<p>{user.email}</p>:''

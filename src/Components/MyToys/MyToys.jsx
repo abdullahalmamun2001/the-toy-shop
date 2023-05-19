@@ -13,6 +13,7 @@ const MyToys = () => {
     }, [user])
     return (
         <div className="overflow-x-auto">
+            <h1>This is all toys{toys.length}</h1>
             <table className="table table-compact w-full">
                 <thead>
                     <tr className='flex justify-between gap-20'>

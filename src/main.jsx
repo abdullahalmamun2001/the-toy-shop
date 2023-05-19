@@ -15,6 +15,7 @@ import MyToys from "./Components/MyToys/MyToys";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import UpdateToy from "./Components/Update/UpdateToy";
 import AuthProvider from "./Provider/AuthProvider";
+import AllToys from "./Components/AllToys/AllToys";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path:'/myToys',
         element:<MyToys></MyToys>
+      },
+      {
+        path:"/allToys",
+        element:<AllToys></AllToys>
       },
       {
         path:'/updateToy/:id',
