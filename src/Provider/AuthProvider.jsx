@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Components/Firebase/Firebase.config'
 // import app from "../Firebase/Firebase.config";
 
@@ -20,6 +20,9 @@ const AuthProvider = ({ children }) => {
     const googleRegister=()=>{
         return signInWithPopup(auth,provider)
     }
+    // const logOut=()=>{
+    //     return signOut(auth)
+    // }
    useEffect(()=>{
     const unsubscribe=onAuthStateChanged(auth,currentUser=>{
         setUser(currentUser)

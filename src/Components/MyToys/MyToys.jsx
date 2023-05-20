@@ -7,36 +7,49 @@ const MyToys = () => {
     // console.log(user);
     const [toys, setToys] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`https://assignment-11-server-data.vercel.app/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [user])
     return (
-        <div className="overflow-x-auto">
-            <h1>This is all toys{toys.length}</h1>
-            <table className="table table-compact w-full">
-                <thead>
-                    <tr className='flex justify-between gap-20'>
-                        <th>Seller</th>
-                        <th>Toy Name</th>
-                        <th>Sub Category</th>
-                        <th>Price</th>
-                        <th>Available Quantity</th>
-                        <th>Edit</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        toys.map(toy => <table className="table table-compact w-full">
+        
 
-                            <MyToyCard key={toy._id} toy={toy}></MyToyCard>
-                        </table>)
-                    }
-                </tbody>
-            </table>
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
 
-        </div>
+                   
+                    <thead>
+                        <tr>
+                            <th>Delete</th>
+                            <th>Image</th>
+                            <th>Toy Name</th>
+                            <th>Rating</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        {
+                            toys.map(toy => <table className="table table-compact w-full">
+
+                                <MyToyCard key={toy._id} toy={toy}></MyToyCard>
+                            </table>)
+                        }
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        
+
+
+
+
     );
 };
 

@@ -8,7 +8,7 @@ const MyToyCard = ({ toy }) => {
         console.log(id);
         const process = confirm("are you sure for delete")
         if (process) {
-            fetch(`http://localhost:5000/myToys/${id}`, {
+            fetch(`https://assignment-11-server-data.vercel.app/myToys/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -21,40 +21,30 @@ const MyToyCard = ({ toy }) => {
         }
     }
     return (
-        // <div>
-        //     <h1>This is my toys</h1>
-        //     <div className="card w-96 bg-base-100 shadow-xl">
-        //         <figure className="px-10 pt-10">
-        //             <img src={picture} alt="Shoes" className="rounded-xl" />
-        //         </figure>
-        //         <div className="card-body items-center text-center">
-        //             <h2 className="card-title">{name}</h2>
-        //             <h2>{_id}</h2>
-        //             <p>{description}</p>
-        //             <div className="card-actions flex">
+         
+       <div>
+         <td>
+         
+         </td>
+         <td>
+           <div className="flex items-center space-x-3">
+             <div className="avatar">
+               <div className="mask mask-squircle w-12 h-12">
+                 <img src={picture} alt="Avatar Tailwind CSS Component" />
+               </div>
+             </div>
+             
+           </div>
+         </td>
+         <td>{name}</td>
+         <td>{rating}</td>
+         <td>{quantity}</td>
+         <td><button>Update</button></td>
+       
+       </div>
 
-        //                 <button onClick={()=>handleDelete(_id)} className="btn btn-primary">Delete</button>
-        //                <Link to={`/updateToy/${_id}`}><button  className="btn btn-primary">Update</button></Link>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <div>
-        
-            
-                <tr className='flex items-center gap-20'>
-                    <th>
-                    <td>{name}</td>
-                    <td>{description}</td>
-                    <td>{sellerName}</td>
-                    <td>{price}</td>
-                    <td>{quantity}</td>
-                    <td><Link to={`/updateToy/${_id}`}><button className="btn btn-primary">Update</button></Link></td>
-                    <td> <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button></td>
-                    </th>
-                </tr>
-           
 
-        
+
 
     );
 };

@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png'
 
 
 const Navber = () => {
-    const {user}=useContext(AuthContext);
+    const {user,logOut}=useContext(AuthContext);
     // console.log(user);
 
     return (
@@ -17,13 +17,18 @@ const Navber = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <NavLink to="/" activeClassName="active">Home</NavLink>
-                    <NavLink to="/login" activeClassName="active">Login</NavLink>
-                    <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
-                    <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
-                    <NavLink to="/allToys" activeClassName="active">AllToys</NavLink>
+                    <NavLink to="/login" activeClassName="active m-2">Login</NavLink>
                     {
-                        user?<p>{user.email}</p>:''
+                        user?<NavLink to="/myToys" activeClassName="active">My Toys</NavLink>:''
                     }
+                    {
+                        user? <NavLink to="/allToys" activeClassName="active" className="p-2">AllToys</NavLink>:''
+                    }
+                   
+                    <NavLink to="/allToys" activeClassName="active">AllToys</NavLink>
+                    <NavLink className="p-2">{
+                        user?<p>{user.email}</p>:''
+                    }</NavLink>
                     </ul>
                 </div>
                 <img className="h-12 w-12 rounded-full " src={logo} alt="" />
@@ -31,19 +36,25 @@ const Navber = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                <NavLink to="/" activeClassName="active">Home</NavLink>
-                    <NavLink to="/login" activeClassName="active">Login</NavLink>
-                    <NavLink to="/myToys" activeClassName="active">My Toys</NavLink>
-                    <NavLink to="/allToys" activeClassName="active">AllToys</NavLink>
-                    <NavLink to="/addToy" activeClassName="active">AddToy</NavLink>
-                    {
+                <NavLink to="/" activeClassName="active" className="p-2">Home</NavLink>
+                    <NavLink to="/login" activeClassName="active m-2" className="p-2">Login</NavLink>
+                    <NavLink to="/myToys" activeClassName="active" className="p-2">My Toys</NavLink>
+                    <NavLink to="/allToys" activeClassName="active" className="p-2">AllToys</NavLink>
+                    <NavLink to="/addToy" activeClassName="active" className="p-2">AddToy</NavLink>
+                    <NavLink className="p-2">{
                         user?<p>{user.email}</p>:''
-                    }
+                    }</NavLink>
                 </ul>
+                {
+                    user?<div className="avatar">
+                    <div className="w-12 rounded-full">
+                      <img src={user.photoURL} />
+                    </div>
+                  </div>:""
+                }
             </div>
-            <div className="navbar-end">
-                <a className="btn">Get started</a>
-            </div>
+            
+            
         </div>
     );
 };

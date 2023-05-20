@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+    const [error,setError]=useState('')
     const {createUser,googleRegister}=useContext(AuthContext)
 
     
@@ -17,7 +20,8 @@ const Login = () => {
             const logged=result.user;
             console.log(logged);
         })
-        .then(error=>console.log(error.message))
+        .then(error=>setError(error.massage))
+        toast('firebase error')
     }
     const handleGoogleRegister=()=>{
         googleRegister()
@@ -29,6 +33,7 @@ const Login = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <ToastContainer></ToastContainer>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">

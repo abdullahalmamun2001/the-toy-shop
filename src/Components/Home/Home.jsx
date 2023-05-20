@@ -8,9 +8,9 @@ import { useState } from "react";
 const Home = () => {
   const [category,setCategory]=useState([])
   const data = useLoaderData();
-  console.log(data);
+  // console.log(data);
   const handleTab=(category)=>{
-    fetch(`http://localhost:5000/toy/${category}`)
+    fetch(`https://assignment-11-server-data.vercel.app/toy/${category}`)
     .then(res=>res.json())
     .then(data=>setCategory(data))
   }

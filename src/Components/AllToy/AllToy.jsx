@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AllToy = ({allToy}) => {
-    console.log(allToy);
+    // console.log(allToy);
     const {picture,sellerName,name,category,quantity,price}=allToy;
     return (
         <tr>

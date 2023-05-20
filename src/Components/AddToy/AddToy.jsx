@@ -18,7 +18,7 @@ const AddToy = () => {
         const description = form.description.value;
         const newToy = { name, picture, sellerEmail, category,quantity, price, rating, sellerName, description }
         console.log(newToy);
-        fetch('http://localhost:5000/toy', {
+        fetch('https://assignment-11-server-data.vercel.app/toy', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
