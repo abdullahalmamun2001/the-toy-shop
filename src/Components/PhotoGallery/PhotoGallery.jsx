@@ -10,7 +10,7 @@ const PhotoGallery = () => {
     return (
         <div className='bg-gray-600'>
             <h1 className='align-center text-3xl text-center my-10 text-cyan-300' >This is Our Photo Gallery</h1>
-            <div className='grid grid-cols-3'>
+            <div className='grid grid-cols-3 gap-5'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure><img className='w-4/12' src={pic1} alt="Shoes" /></figure>
 

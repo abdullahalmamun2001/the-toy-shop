@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [error,setError]=useState('')
-    const {createUser,googleRegister}=useContext(AuthContext)
+    const {signIn,googleRegister}=useContext(AuthContext)
 
     
     const handleLogin=(event)=>{
@@ -15,12 +15,12 @@ const Login = () => {
         const email=form.email.value;
         const password=form.password.value;
         console.log(email,password);
-        createUser(email,password)
+        signIn(email,password)
         .then(result=>{
             const logged=result.user;
             console.log(logged);
         })
-        .then(error=>setError(error))
+        .catch(error=>setError(error.message))
         toast(error)
     }
     const handleGoogleRegister=()=>{

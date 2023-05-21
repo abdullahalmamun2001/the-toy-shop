@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const { googleRegister, createUser } = useContext(AuthContext)
@@ -24,12 +25,22 @@ const Register = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photoURL=form.photoURL.value;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
-        console.log(name, email, photoURL,password);
-        createUser()
-        .then(result=>{console.log(result.user);})
-        .then(error=>{console.log(r=error);})
+        // console.log(name, email, photoURL, password);
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                if (result.user) {
+                    Swal.fire(
+                        'Good job!',
+                        'Your Registration is Successfully!',
+                        'success'
+                    )
+                }
+                ;
+            })
+            .then(error => { console.log(error); })
     }
     return (
         <div>
@@ -38,7 +49,7 @@ const Register = () => {
 
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleCreateUser} className="card-body">
-                           
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -72,7 +83,7 @@ const Register = () => {
                             </div>
                         </form>
                         {/* <button onClick={handleRegister}></button> */}
-                        <p>Already Register?Please login <Link to='/login'>Login</Link></p>
+                        <p>Already Register?Please<Link to='/login'>Login</Link></p>
                     </div>
                 </div>
             </div>

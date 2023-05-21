@@ -31,13 +31,17 @@ const MyToys = () => {
         }
     }
 
-    const updateData=useLoaderData();
-    console.log(updateData);
+    const updateData = useLoaderData();
+
+    // console.log(updateData);
+
+    
     return (
 
-            
+
         <div className="overflow-x-auto w-full">
             
+
             <table className="table w-full">
 
 
@@ -70,7 +74,7 @@ const MyToys = () => {
                             <td>{toy.rating}</td>
                             <td>{toy.quantity}</td>
                             <td><Link to={`/updateToy/${toy._id}`}><button className='btn btn-primary'>Update</button></Link></td>
-                            <td><button onClick={()=>handleDelete(toy._id)} className='btn btn-secondary'>Delete</button></td>
+                            <td><button onClick={() => handleDelete(toy._id)} className='btn btn-secondary'>Delete</button></td>
 
                         </tr>
                         )
