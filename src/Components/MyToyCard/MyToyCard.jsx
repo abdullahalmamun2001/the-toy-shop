@@ -8,7 +8,7 @@ const MyToyCard = ({ toy }) => {
         console.log(id);
         const process = confirm("are you sure for delete")
         if (process) {
-            fetch(`https://assignment-11-server-data.vercel.app/myToys/${id}`, {
+            fetch(`http://localhost:5000/myToys/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

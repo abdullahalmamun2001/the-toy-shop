@@ -4,6 +4,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from "react";
 import Banner from "../Banner/Banner";
+import PhotoGallery from "../PhotoGallery/PhotoGallery";
+import Extra from "../Extra/Extra";
 
 
 const Home = () => {
@@ -11,13 +13,14 @@ const Home = () => {
   const data = useLoaderData();
   // console.log(data);
   const handleTab=(category)=>{
-    fetch(`https://assignment-11-server-data.vercel.app/toy/${category}`)
+    fetch(`http://localhost:5000/toy/${category}`)
     .then(res=>res.json())
     .then(data=>setCategory(data))
   }
   return (
 
     <div>
+      <Banner></Banner>
       <Tabs>
         <TabList>
           <Tab onClick={()=>{handleTab("MicroBus")}}><p>MicroBus</p></Tab>
@@ -49,9 +52,11 @@ const Home = () => {
         </TabPanel>
         
       </Tabs>
+      <PhotoGallery></PhotoGallery>
+      <Extra></Extra>
 
 
-      <Banner></Banner>
+      
 
     </div>
   );

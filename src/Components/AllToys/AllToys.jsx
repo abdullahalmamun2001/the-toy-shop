@@ -4,7 +4,7 @@ import AllToy from '../AllToy/AllToy';
 const AllToys = () => {
     const [allToys, setAllToys] = useState([]);
     useEffect(() => {
-        fetch('https://assignment-11-server-data.vercel.app/toy')
+        fetch('http://localhost:5000/toy')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])

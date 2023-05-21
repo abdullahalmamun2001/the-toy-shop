@@ -16,9 +16,9 @@ const AddToy = () => {
         const rating = form.rating.value;
         const sellerName = user?.displayName;
         const description = form.description.value;
-        const newToy = { name, picture, sellerEmail, category,quantity, price, rating, sellerName, description }
+        const newToy = { name, picture, sellerEmail, category,quantity, price:parseInt(price), rating, sellerName, description }
         console.log(newToy);
-        fetch('https://assignment-11-server-data.vercel.app/toy', {
+        fetch('http://localhost:5000/toy', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
