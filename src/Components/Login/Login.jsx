@@ -20,12 +20,12 @@ const Login = () => {
             const logged=result.user;
             console.log(logged);
         })
-        .then(error=>setError(error.massage))
-        toast('firebase error')
+        .then(error=>setError(error))
+        toast(error)
     }
     const handleGoogleRegister=()=>{
         googleRegister()
-        .then(result=>{console.log(result.user);})
+        .then(result=>{console.log(result.user.providerId);})
         .then(error=>{console.log(error.massage);})
     }
     return (

@@ -7,6 +7,11 @@ import logo from '../../assets/logo.png'
 const Navber = () => {
     const {user,logOut}=useContext(AuthContext);
     // console.log(user);
+    const handleLogOut=()=>{
+        logOut()
+        .then(result=>{})
+        .then(error=>{})
+    }
 
     return (
         <div className="navbar bg-base-100">
@@ -17,7 +22,9 @@ const Navber = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <NavLink to="/" activeClassName="active">Home</NavLink>
-                    <NavLink to="/login" activeClassName="active m-2">Login</NavLink>
+                   {
+                    user?<NavLink><button onClick={handleLogOut}>LogOut</button></NavLink>: <NavLink to="/login" activeClassName="active">Login</NavLink>
+                   }
                     {
                         user?<NavLink to="/myToys" activeClassName="active">My Toys</NavLink>:''
                     }
@@ -37,7 +44,9 @@ const Navber = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                 <NavLink to="/" activeClassName="active" className="p-2">Home</NavLink>
-                    <NavLink to="/login" activeClassName="active m-2" className="p-2">Login</NavLink>
+                {
+                    user?<NavLink><button className="m-2" onClick={handleLogOut}>LogOut</button></NavLink>: <NavLink to="/login" activeClassName="active " className='m-2'>Login</NavLink>
+                   }
                     <NavLink to="/myToys" activeClassName="active" className="p-2">My Toys</NavLink>
                     <NavLink to="/allToys" activeClassName="active" className="p-2">AllToys</NavLink>
                     <NavLink to="/addToy" activeClassName="active" className="p-2">AddToy</NavLink>

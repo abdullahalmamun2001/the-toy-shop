@@ -20,9 +20,9 @@ const AuthProvider = ({ children }) => {
     const googleRegister=()=>{
         return signInWithPopup(auth,provider)
     }
-    // const logOut=()=>{
-    //     return signOut(auth)
-    // }
+    const logOut=()=>{
+        return signOut(auth)
+    }
    useEffect(()=>{
     const unsubscribe=onAuthStateChanged(auth,currentUser=>{
         setUser(currentUser)
@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
         return unsubscribe;
     }
    },[])
-    const authInfo = { user,createUser,googleRegister }
+    const authInfo = { user,createUser,googleRegister,logOut }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

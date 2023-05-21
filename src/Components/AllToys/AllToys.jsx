@@ -28,8 +28,21 @@ const AllToys = () => {
                         </thead>
                         <tbody>
                             {
-                                allToys.map(allToy => <AllToy key={allToy._id} allToy={allToy}></AllToy>)
+                                allToys.map(allToy =>  <tr>
+                                    <td>{allToy.sellerName}</td>
+                                    <td>allToy.{name}</td>
+                                     
+                                     <td>{allToy.category}</td>
+                                     <td>{allToy.quantity}</td>
+                                     <td>{allToy.price}</td>
+                                     <td>
+                                         <button className="btn btn-primary">View Details</button>
+                                     </td>
+                                 </tr>)
                             }
+                            {/* {
+                                allToys.map(allToy => <AllToy key={allToy._id} allToy={allToy}></AllToy>)
+                            } */}
                            
                         </tbody>
                         

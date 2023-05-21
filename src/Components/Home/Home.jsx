@@ -3,6 +3,7 @@ import TabsComponent from "../TabsComponent/TabsComponent";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from "react";
+import Banner from "../Banner/Banner";
 
 
 const Home = () => {
@@ -50,7 +51,7 @@ const Home = () => {
       </Tabs>
 
 
-      <h1>This is home</h1>
+      <Banner></Banner>
 
     </div>
   );
